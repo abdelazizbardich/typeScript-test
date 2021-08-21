@@ -1,0 +1,13 @@
+{
+    "name": "credit-simulator-auto-library",
+    "version": "1.0.0",
+    "description": "A typescript that can help you with all credit simulation functions",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+      "start": "tsc"
+    },
+    "files": [
+      "/dist"
+    ]
+  }

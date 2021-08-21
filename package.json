@@ -1,10 +1,9 @@
 {
-  "name": "typescript-test",
+  "name": "credit-simulator-auto",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html"
   },
   "repository": {
@@ -27,7 +26,6 @@
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.2.2",
     "sass": "^1.38.0",
-    "typescript": "^4.3.5",
     "vue-template-compiler": "^2.6.14"
   }
 }
