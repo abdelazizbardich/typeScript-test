@@ -8,7 +8,7 @@ function getAmountBorrowed(carPrice, advance) {
 exports.getAmountBorrowed = getAmountBorrowed;
 // calculate clean montionality
 function getCleanMontionality(amountBorrowed, duration) {
-    return +(amountBorrowed / duration).toFixed(2);
+    return +(amountBorrowed / duration / 12).toFixed(2);
 }
 exports.getCleanMontionality = getCleanMontionality;
 // Get montionality interet

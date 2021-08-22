@@ -3,48 +3,48 @@
         <form @submit.prevent="">
             <div class="row">
                 <div class="form-group col mb-3 px-2 w-100">
-                    <label class="text-dark small" for="car-price">Car price:</label>
-                    <input v-model="carPrice" type="number" :class="(+this.carPrice < +this.advance || +carPrice < 10000)?'is-invalid':''"  min="10000" id="car-price" class="form-control" placeholder="Car price...">
+                    <label class="text-dark small" for="car-price">Prix de la voiture:</label>
+                    <input v-model="carPrice" type="number" :class="(+this.carPrice < +this.advance || +carPrice < 10000)?'is-invalid':''"  min="10000" id="car-price" class="form-control" placeholder="Prix de la voiture :...">
                 </div>
                 <div class="form-group col mb-3 px-2 w-100">
-                    <label class="text-dark small" for="advance">Advance</label>
-                    <input v-model="advance"  :class="(+this.carPrice < +this.advance)?'is-invalid':''" type="number" min="0" id="advance" class="form-control" placeholder="Payed advance...">
+                    <label class="text-dark small" for="advance">Avance:</label>
+                    <input v-model="advance"  :class="(+this.carPrice < +this.advance)?'is-invalid':''" type="number" min="0" id="advance" class="form-control" placeholder="Avance...">
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col mb-3 px-2 w-100">
-                    <label class="text-dark small" for="duration">Duration:</label>
+                    <label class="text-dark small" for="duration">Durée:</label>
                     <select v-model="duration" name="duration" id="duration" class="form-control">
-                    <option disabled selected>Duration...</option>
-                        <option v-for="d,index in durations" :key=index :value=d[0]>{{ d[1] }}</option>
+                    <option disabled selected>Durée...</option>
+                        <option v-for="d,index in 70" :key=index :value=d>{{ d }} {{  }}</option>
                     </select>
                 </div>
                 <div class="form-group col mb-3 px-2 w-100">
-                    <label class="text-dark small" for="interest-rate">Interest rate:</label>
-                    <input v-model="interestRate"  min="6" max="12" type="range" id="interest-rate" class="form-range" placeholder="Interest rate...">
+                    <label class="text-dark small" for="interest-rate">Taux d'intérêt:</label>
+                    <input v-model="interestRate"  min="1" max="20" type="range" id="interest-rate" class="form-range" placeholder="Taux d'intérêt...">
                     <div class="d-flex justify-content-between">
-                        <span>6%</span>
+                        <span>1%</span>
                         <span class="text-danger">{{ interestRate }}%</span>
-                        <span>12%</span>
+                        <span>20%</span>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col mb-3 px-2 w-100">
-                    <label class="text-dark small" for="amount-borrowed">Amount borrowed:</label>
-                    <input :value="carPrice - advance" disabled readonly type="number" min="0" id="amount-borrowed" class="form-control" :class="(+this.carPrice < +this.advance)?'is-invalid':''"  placeholder="Amount borrowed...">
+                    <label class="text-dark small" for="amount-borrowed">Montant emprunté:</label>
+                    <input :value="carPrice - advance" disabled readonly type="number" min="0" id="amount-borrowed" class="form-control" :class="(+this.carPrice < +this.advance)?'is-invalid':''"  placeholder="Montant emprunté...">
                 </div>
                 <div class="form-group col mb-3 px-2 w-100">
-                    <label class="text-dark small" for="monthly-payment">Monthly payment:</label>
-                    <input :value="monthlyPayment" disabled readonly type="number" min="0" id="monthly-payment" class="form-control" placeholder="Monthly payment...">
+                    <label class="text-dark small" for="monthly-payment">Mensualité:</label>
+                    <input :value="monthlyPayment" disabled readonly type="number" min="0" id="monthly-payment" class="form-control" placeholder="Mensualité...">
                 </div>
             </div>
             <div class="row justify-content-between">
                 <div class="col-auto form-group mb-3">
-                    <button id="go" type="submit" disabled @click="prev" class="btn btn-dark p-2 shadow w-100">Prev</button>
+                    <button id="go" type="submit" disabled @click="prev" class="btn btn-dark p-2 shadow w-100">Précédent</button>
                 </div>
                 <div class="col-auto form-group mb-3">
-                    <button id="go" @click="next" type="submit" class="btn btn-warning p-2 shadow w-100">Next</button>
+                    <button id="go" @click="next" type="submit" class="btn btn-warning p-2 shadow w-100">Suivant</button>
                 </div>
             </div>
         </form>
@@ -67,17 +67,12 @@ export default {
             interestRate:6,
             amountBorrowed:0,
             monthlyPayment:0,
-            duration:12,
-            durations:[
-                [12,"12 Mois"],
-                [24,"24 Mois"],
-                [36,"36 Mois"],
-                [48,"48 Mois"],
-                [60,"60 Mois"],
-                [72,"72 Mois"],
-            ],
+            duration:1,
             errors:[]
         }
+    },
+    created(){
+        // console.log(getMontionalinteret(this.carPrice,this.interestRate,this.duration).toFixed(2));
     },
     props:['save'],
     watch:{
