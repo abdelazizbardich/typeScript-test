@@ -1,25 +1,25 @@
 <template>
-    <div class="m-5 mt-0 p-3 px-5 rounded-3 border border-warning shadow-lg bg-white">
+    <div class="m-md-5 mb-5 mt-0 p-3 px-md-5 rounded-3 border border-warning shadow-lg bg-white">
         <form @submit.prevent="">
             <div class="row">
-                <div class="form-group col mb-3 px-2 w-100">
+                <div class="form-group col-12 col-md mb-3 px-2 w-100">
                     <label class="text-dark small" for="car-price">Prix de la voiture:</label>
                     <input v-model="carPrice" type="number" :class="(+this.carPrice < +this.advance || +carPrice < 10000)?'is-invalid':''"  min="10000" id="car-price" class="form-control" placeholder="Prix de la voiture :...">
                 </div>
-                <div class="form-group col mb-3 px-2 w-100">
+                <div class="form-group col-12 col-md mb-3 px-2 w-100">
                     <label class="text-dark small" for="advance">Avance:</label>
                     <input v-model="advance"  :class="(+this.carPrice < +this.advance)?'is-invalid':''" type="number" min="0" id="advance" class="form-control" placeholder="Avance...">
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col mb-3 px-2 w-100">
+                <div class="form-group col-12 col-md mb-3 px-2 w-100">
                     <label class="text-dark small" for="duration">Durée:</label>
                     <select v-model="duration" name="duration" id="duration" class="form-control">
                     <option disabled selected>Durée...</option>
                         <option v-for="d,index in 70" :key=index :value=d>{{ d }} {{  }}</option>
                     </select>
                 </div>
-                <div class="form-group col mb-3 px-2 w-100">
+                <div class="form-group col-12 col-md mb-3 px-2 w-100">
                     <label class="text-dark small" for="interest-rate">Taux d'intérêt:</label>
                     <input v-model="interestRate"  min="1" max="20" type="range" id="interest-rate" class="form-range" placeholder="Taux d'intérêt...">
                     <div class="d-flex justify-content-between">
@@ -30,11 +30,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col mb-3 px-2 w-100">
+                <div class="form-group col-12 col-md mb-3 px-2 w-100">
                     <label class="text-dark small" for="amount-borrowed">Montant emprunté:</label>
                     <input :value="carPrice - advance" disabled readonly type="number" min="0" id="amount-borrowed" class="form-control" :class="(+this.carPrice < +this.advance)?'is-invalid':''"  placeholder="Montant emprunté...">
                 </div>
-                <div class="form-group col mb-3 px-2 w-100">
+                <div class="form-group col-12 col-md mb-3 px-2 w-100">
                     <label class="text-dark small" for="monthly-payment">Mensualité:</label>
                     <input :value="monthlyPayment" disabled readonly type="number" min="0" id="monthly-payment" class="form-control" placeholder="Mensualité...">
                 </div>
@@ -64,7 +64,7 @@ export default {
             totalPay:0,
             carPrice:10000,
             advance:0,
-            interestRate:6,
+            interestRate:10,
             amountBorrowed:0,
             monthlyPayment:0,
             duration:1,
@@ -75,6 +75,10 @@ export default {
         // console.log(getMontionalinteret(this.carPrice,this.interestRate,this.duration).toFixed(2));
     },
     props:['save'],
+    created() {
+        this.amountBorrowed = this.carPrice - this.advance
+        this.monthlyPayment = this.getMontionality()
+    },
     watch:{
         $data: {
             handler: function() {

@@ -1,5 +1,5 @@
 <template>
-    <div class="m-5 mt-0 p-3 px-5 rounded-3 border border-warning shadow-lg bg-white">
+    <div class="m-md-5 mb-5 mt-0 p-3 px-md-5 rounded-3 border border-warning shadow-lg bg-white">
         <form @submit.prevent="">
             <div class="row">
                 <div class="form-group col-auto mb-3 px-2">

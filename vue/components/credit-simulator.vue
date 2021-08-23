@@ -4,11 +4,11 @@
             <div class="row">
                 <div class="col-12 m-auto">
                     <div class="jumbotron">
-                        <div class="jumbotron border border-dark shadow my-5 mx-5 rounded-2 bg-warning">
+                        <div class="jumbotron border border-dark shadow my-md-5 mt-5 mx-md-5 rounded-2 bg-warning">
                             <h1 class="display-5 text-center">CREDIT SIMULATOR</h1>
                         </div>
                     </div>
-                    <div class="w-100 px-5">
+                    <div class="w-100 px-md-5">
                     <div class="steps d-flex justify-content-between align-items-center">
                         <span @click="step = 'step1'" :class="(step == 'step1')?'shadow-sm bg-warning':'px-3 py-2 bg-info'" class="px-3 py-2 my-3 text-white rounded-circle ">1</span>
                         <span @click="step = 'step2'" :class="(step == 'step2')?'shadow-sm bg-warning':'px-3 py-2 bg-info'" class="px-3 py-2 my-3 text-white rounded-circle ">2</span>
