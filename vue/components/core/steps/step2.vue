@@ -98,7 +98,6 @@
 
 </style>
 <script>
-import {getCleanMontionality,getMontionalinteret} from "../../../../library/dist/index"
 export default {
     data() {
         return {

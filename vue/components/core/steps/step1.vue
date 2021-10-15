@@ -57,7 +57,7 @@
 
 </style>
 <script>
-import {getCleanMontionality,getMontionalinteret} from "../../../../library/dist/index"
+import kfcs from '../../../../library/dist/functions'
 export default {
     data() {
         return {
@@ -90,8 +90,8 @@ export default {
     },
     methods:{
         getMontionality(){
-            let cleanMontionality = getCleanMontionality(this.amountBorrowed,this.duration)
-            return getMontionalinteret(cleanMontionality,this.amountBorrowed,this.interestRate)
+            let cleanMontionality = kfcs.getCleanMontionality(this.amountBorrowed,this.duration)
+            return kfcs.getMontionalinteret(cleanMontionality,this.amountBorrowed,this.interestRate)
         },
         next(){
             this.$emit(
